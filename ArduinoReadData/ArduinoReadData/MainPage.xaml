@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="ArduinoReadData.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ArduinoReadData"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox x:Name="CheckPortisavaialblestatus" HorizontalAlignment="Left" Margin="16,53,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="621"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="16,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256">
+            <Run FontWeight="Bold" Text="Port Available Status"/>
+        </TextBlock>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="258,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+            <Run FontWeight="Bold" Text="Read Arduino Data"/>
+        </TextBlock>
+        <TextBox x:Name="comPortInputstatus" HorizontalAlignment="Left" Margin="12,134,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="618"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="14,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249">
+            <Run FontWeight="Bold" Text="ComPort "/>
+            <Run FontWeight="Bold" Text="Input "/>
+            <Run FontWeight="Bold" Text="Status"/>
+        </TextBlock>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="12,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+            <Run FontWeight="Bold" Text="Error Message"/>
+        </TextBlock>
+        <TextBox x:Name="status" HorizontalAlignment="Left" Margin="10,191,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="616"/>
+        <TextBox x:Name="rcvdText" HorizontalAlignment="Left" Margin="11,248,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="616" Height="104"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="13,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+            <Run FontWeight="Bold" Text="Serial Data"/>
+        </TextBlock>
+        <Button x:Name="btnSendPulseData" Content="Send Data" HorizontalAlignment="Left" Margin="574,388,0,0" VerticalAlignment="Top" Click="btnSendPulseData_Click"/>
+
+    </Grid>
+</Page>

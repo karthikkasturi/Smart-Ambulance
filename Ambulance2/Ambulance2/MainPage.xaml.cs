@@ -43,8 +43,8 @@ namespace Ambulance2
         private async void InitializeLocator()
         {
             BasicGeoposition location = new BasicGeoposition();
-            location.Latitude = 17.438575;
-            location.Longitude = 78.510195;
+            location.Latitude = 17.357361;
+            location.Longitude = 78.511192;
             SendGeoPosition(location);
 
         }
@@ -54,7 +54,7 @@ namespace Ambulance2
             // The location to reverse geocode.
             while (true)
             {
-                string str = "Ambulance2" + "," + location.Latitude.ToString() + "," + location.Longitude.ToString();
+                string str = "Ambulance-2" + "," + location.Latitude.ToString() + "," + location.Longitude.ToString();
                 AzureIoTHub.SendDeviceToCloudMessageAsync(str);
 
 
