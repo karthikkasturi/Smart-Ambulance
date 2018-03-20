@@ -133,9 +133,11 @@ namespace ArduinoReadData
             UInt32 bytesRead = await loadAsyncTask;
             if (bytesRead > 0)
             {
-                MedValues = rcvdText.Text = dataReaderObject.ReadString(bytesRead);
+                string pulseReading = dataReaderObject.ReadString(bytesRead).Replace("\r\n", "").Trim();
+                MedValues = rcvdText.Text = 
+                    $"Medical_IOT_PulseOximeter,John Doe,{pulseReading},17.3971, 78.4903";
                 status.Text = "bytes read successfully!";
-                await AzureIoTHub.SendDeviceToCloudMessageAsync(MedValues);
+                
             }
             await Task.Delay(TimeSpan.FromSeconds(6));
         }
