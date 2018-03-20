@@ -137,7 +137,8 @@ namespace ArduinoReadData
                 MedValues = rcvdText.Text = 
                     $"Medical_IOT_PulseOximeter,John Doe,{pulseReading},17.3971, 78.4903";
                 status.Text = "bytes read successfully!";
-                
+                await AzureIoTHub.SendDeviceToCloudMessageAsync(MedValues);
+
             }
             await Task.Delay(TimeSpan.FromSeconds(6));
         }
