@@ -146,8 +146,8 @@ namespace Medical_IOT_Console_DE
                 list = new List<double>() { 0, 0 };
                 dictionary.Add(key, list);
             }
-            list[0] = longitude;
-            list[1] = latitude;
+            list[0] = latitude;
+            list[1] = longitude;
             //Console.WriteLine(dictionary);
         }
 
