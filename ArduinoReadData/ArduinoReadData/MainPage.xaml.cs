@@ -37,8 +37,8 @@ namespace ArduinoReadData
             this.InitializeComponent();
             
 
-            //listOfDevices = new ObservableCollection<DeviceInformation>();
-            //CheckPortisavaialble();
+            listOfDevices = new ObservableCollection<DeviceInformation>();
+            CheckPortisavaialble();
         }
         private async void CheckPortisavaialble()
         {
@@ -118,7 +118,7 @@ namespace ArduinoReadData
         private async Task ReadAsync()
         {
             Task<UInt32> loadAsyncTask;
-            uint ReadBufferLength = 100;
+            uint ReadBufferLength = 1024;
             string MedValues = null;
 
 
@@ -135,9 +135,9 @@ namespace ArduinoReadData
             {
                 MedValues = rcvdText.Text = dataReaderObject.ReadString(bytesRead);
                 status.Text = "bytes read successfully!";
-                // await AzureIoTHub.SendDeviceToCloudMessageAsync(MedValues);
+                await AzureIoTHub.SendDeviceToCloudMessageAsync(MedValues);
             }
-            await Task.Delay(TimeSpan.FromSeconds(10));
+            await Task.Delay(TimeSpan.FromSeconds(6));
         }
         static int i = 0; 
         private async void btnSendPulseData_Click(object sender, RoutedEventArgs e)
