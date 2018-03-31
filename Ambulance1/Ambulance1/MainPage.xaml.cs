@@ -28,7 +28,7 @@ namespace Ambulance1
         public MainPage()
         {
             this.InitializeComponent();
-            InitializeLocator();
+            Task.Run(() => InitializeLocator());
             RecieveAlert();
         }
 
