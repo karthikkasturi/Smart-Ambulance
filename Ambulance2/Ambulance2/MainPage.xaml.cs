@@ -29,7 +29,7 @@ namespace Ambulance2
         public MainPage()
         {
             this.InitializeComponent();
-            InitializeLocator();
+            Task.Run(() => InitializeLocator());
             RecieveAlert();
         }
         public async Task RecieveAlert()
