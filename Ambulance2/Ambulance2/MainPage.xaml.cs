@@ -54,8 +54,8 @@ namespace Ambulance2
             // The location to reverse geocode.
             while (true)
             {
-                string str = "Ambulance-2" + "," + location.Latitude.ToString() + "," + location.Longitude.ToString();
-                AzureIoTHub.SendDeviceToCloudMessageAsync(str);
+                string str = "ambulance2" + "," + location.Latitude.ToString() + "," + location.Longitude.ToString();
+                await AzureIoTHub.SendDeviceToCloudMessageAsync(str);
 
 
                 await Task.Delay(10000);

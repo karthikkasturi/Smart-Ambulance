@@ -45,82 +45,16 @@ namespace Ambulance1
             location.Latitude = 17.438575;
             location.Longitude = 78.510195;
             SendGeoPosition(location);
-
-         /*   var userPermission = await Geolocator.RequestAccessAsync();
-            switch (userPermission)
-            {
-                case GeolocationAccessStatus.Allowed:
-
-                    Geolocator geolocator = new Geolocator();
-                    Geoposition pos = await geolocator.GetGeopositionAsync();
-
-                    try
-                    {
-
-                        //Status.Text = pos.Coordinate.Latitude.ToString() + pos.Coordinate.Longitude.ToString();
-                        location.Latitude = pos.Coordinate.Latitude;
-                        location.Longitude = pos.Coordinate.Longitude;
-                        location.Altitude = Convert.ToDouble(pos.Coordinate.Altitude);
-                        ReverseGeocode(location);
-                        MapControl1.LandmarksVisible = true;
-
-                    }
-                    catch
-                    {
-                        status.Text = "I cannot c";
-                    }
-                    break;
-
-                case GeolocationAccessStatus.Denied:
-                    status.Text = "I cannot check the weather if you don't give me the access to your location...";
-                    break;
-
-                case GeolocationAccessStatus.Unspecified:
-                    status.Text = "I got an error while getting location permission. Please try again...";
-                    break;
-            }*/
+            
         }
-        /* private async void ReverseGeocode(BasicGeoposition location)
-        {
-            // The location to reverse geocode.
-            while (true)
-            {
-                Geopoint pointToReverseGeocode = new Geopoint(location);
-
-                // Reverse geocode the specified geographic location.
-                MapLocationFinderResult result =
-                      await MapLocationFinder.FindLocationsAtAsync(pointToReverseGeocode);
-
-                // If the query returns results, display the name of the town
-                // contained in the address of the first result.
-                if (result.Status == MapLocationFinderStatus.Success)
-                {
-                    status.Text = "town = " +
-                    result.Locations[0].Address.Town + "Region = " +
-                    result.Locations[0].Address.Region + "Street = " +
-                    result.Locations[0].Address.Street + "StreetNumber= " +
-                    result.Locations[0].Address.StreetNumber + "Postcode = " +
-                    result.Locations[0].Address.PostCode;
-                    string str = "Ambulance1"+","+location.Latitude.ToString() +","+ location.Longitude.ToString() ;
-                    AzureIoTHub.SendDeviceToCloudMessageAsync(str);
-                }
-                else
-                {
-                    status.Text = "Dint found";
-
-
-                }
-                await Task.Delay(10000);
-            }
-        }*/
-
+        
         private async void SendGeoPosition(BasicGeoposition location)
         {
             // The location to reverse geocode.
             while (true)
             {
-                string str = "Ambulance-1" + "," + location.Latitude.ToString() + "," + location.Longitude.ToString();
-                AzureIoTHub.SendDeviceToCloudMessageAsync(str);
+                string str = "ambulance1" + "," + location.Latitude.ToString() + "," + location.Longitude.ToString();
+                await AzureIoTHub.SendDeviceToCloudMessageAsync(str);
 
 
                 await Task.Delay(10000);

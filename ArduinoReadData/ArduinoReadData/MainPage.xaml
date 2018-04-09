@@ -29,7 +29,7 @@
         <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="13,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
             <Run FontWeight="Bold" Text="Serial Data"/>
         </TextBlock>
-        <Button x:Name="btnSendPulseData" Content="Send Data" HorizontalAlignment="Left" Margin="574,388,0,0" VerticalAlignment="Top" Click="btnSendPulseData_Click"/>
+        <Button x:Name="btnSendPulseData" Content="Send Data" HorizontalAlignment="Left" Margin="574,388,0,0" VerticalAlignment="Top" />
 
     </Grid>
 </Page>

@@ -21,7 +21,7 @@ class AzureIoTHub
     // Note: this connection string is specific to the device "IotPlants". To configure other devices,
     // see information on iothub-explorer at http://aka.ms/iothubgetstartedVSCS
     //
-    const string deviceConnectionString = "HostName=SmartAmbulanceHub.azure-devices.net;DeviceId=Ambulance-1;SharedAccessKey=agEj/6v3htOeSsjvG0FRWD09zuF/LhX88EQ1CrMyZxY=";
+    const string deviceConnectionString = "HostName=SmartAmbulanceIoT.azure-devices.net;DeviceId=ambulance1;SharedAccessKey=0BoPDAP1diP8vjPb1yMPgYTvIM5Ho5yhFrtyPTSlXag=";
                                                                                                                         
 
     //
@@ -60,6 +60,8 @@ class AzureIoTHub
             }
 
             await Task.Delay(TimeSpan.FromSeconds(1));
+
+            return string.Empty;
         }
     }
 

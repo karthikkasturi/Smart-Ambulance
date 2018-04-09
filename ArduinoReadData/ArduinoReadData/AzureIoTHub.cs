@@ -21,7 +21,7 @@ class AzureIoTHub
     // Note: this connection string is specific to the device "mydevice1". To configure other devices,
     // see information on iothub-explorer at http://aka.ms/iothubgetstartedVSCS
     //
-    const string deviceConnectionString = "HostName=SmartAmbulanceHub.azure-devices.net;DeviceId=Medical_IOT_PulseOximeter;SharedAccessKey=WAq2Fd8/UQMad8hl3txsa5kq2CeNpR0H38A1/ewOPog=";
+    const string deviceConnectionString = "HostName=SmartAmbulanceIoT.azure-devices.net;DeviceId=Medical_IOT_PulseOximeter;SharedAccessKey=eYvY8VsQeYKR8KlW5g1xr2d4IJ27xx+rGK1fV4QGXww=";
 
 
     //

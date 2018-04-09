@@ -35,7 +35,7 @@ namespace ArduinoReadData
         public MainPage()
         {
             this.InitializeComponent();
-            
+
 
             listOfDevices = new ObservableCollection<DeviceInformation>();
             CheckPortisavaialble();
@@ -121,9 +121,6 @@ namespace ArduinoReadData
             uint ReadBufferLength = 1024;
             string MedValues = null;
 
-
-
-
             // Set InputStreamOptions to complete the asynchronous read operation when one or   more bytes is available
             dataReaderObject.InputStreamOptions = InputStreamOptions.Partial;
 
@@ -133,26 +130,28 @@ namespace ArduinoReadData
             UInt32 bytesRead = await loadAsyncTask;
             if (bytesRead > 0)
             {
-                string pulseReading = dataReaderObject.ReadString(bytesRead).Replace("\r\n", "").Trim();
-                MedValues = rcvdText.Text = 
-                    $"Medical_IOT_PulseOximeter,John Doe,{pulseReading},17.3971, 78.4903";
+                string pulseReading = dataReaderObject.ReadString(bytesRead)
+                    .Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries).Last().Trim();
+                MedValues = rcvdText.Text =
+                    $"Medical_IOT_PulseOximeter,John Doe,{pulseReading},17.438575,78.510194";
+                //,17.3971, 78.4903";
                 status.Text = "bytes read successfully!";
                 await AzureIoTHub.SendDeviceToCloudMessageAsync(MedValues);
 
             }
-            await Task.Delay(TimeSpan.FromSeconds(6));
+            await Task.Delay(TimeSpan.FromSeconds(3));
         }
-        static int i = 0; 
-        private async void btnSendPulseData_Click(object sender, RoutedEventArgs e)
-        {
-            if (i == pulseValues.Count) i = 0;
-            string MedValues = "Medical_IOT_PulseOximeter,Karthik,";
-            MedValues += pulseValues[i];
-            MedValues += ",17.437462,78.448288";
-            status.Text = "Read succesfully";
-            await AzureIoTHub.SendDeviceToCloudMessageAsync(MedValues);
-            rcvdText.Text = MedValues + ";";
-            i++;
-        }
+        //static int i = 0; 
+        //private async void btnSendPulseData_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (i == pulseValues.Count) i = 0;
+        //    string MedValues = "Medical_IOT_PulseOximeter,Karthik,";
+        //    MedValues += pulseValues[i];
+        //    MedValues += ",17.437462,78.448288";
+        //    status.Text = "Read succesfully";
+        //    await AzureIoTHub.SendDeviceToCloudMessageAsync(MedValues);
+        //    rcvdText.Text = MedValues + ";";
+        //    i++;
+        //}
     }
 }

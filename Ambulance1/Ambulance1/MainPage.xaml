@@ -12,9 +12,7 @@
         <Maps:MapControl  
    x:Name="MapControl1"  
    MapServiceToken="I7JnfnrVASEVKWa6U1Ou~D3YDr2cIpbG0LKwR1jfq9Q~Ag0vIi4t_IQrkxj0vcETvnFTa8AN0IS-Rs2XpmM-Bbts7BSzrgv9WwZGo0a9L9NE"  
-   ZoomLevel="3" Margin="298,0,0,0"  
-            
-/>
-        <TextBox Name="status" HorizontalAlignment="Left" Margin="0,268,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="320" Width="167"/>
+   ZoomLevel="3" Margin="298,0,0,0" />
+        <TextBox Name="status" HorizontalAlignment="Left" Margin="0,36,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="552" Width="283"/>
     </Grid>
 </Page>
